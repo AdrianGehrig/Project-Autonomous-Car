@@ -40,9 +40,6 @@ Kamera = utils.openCam()
 def calc_steering(model_file):
 
 
-
-
-
 	#load model
 	model = load_model(model_file)
 
@@ -53,8 +50,7 @@ def calc_steering(model_file):
 		if (not stop_flag):
 			#time1 = time.process_time()
 			frame = utils.grabFrame(Kamera)	# hole aktuellen Frame
-			#cv2.imshow("Aktuelles bildle", frame)
-			#key = cv2.waitKey(1) & 0xFF 
+
 			frame=cv2.resize(frame, (320,240))	 
 		
 		
@@ -63,9 +59,6 @@ def calc_steering(model_file):
 
 			image = np.asarray(frame)       # from PIL image to numpy array
 			image = utils.preprocessKameraStream(image) # apply the preprocessing
-		
-			#cv2.imshow("Aktuelles Bild", image)# preprocesstes Bild anzeigen
-			#key = cv2.waitKey(1) & 0xFF # Aktualisiert Bild Anzeige
 		
 			image = np.array([image])       # the model expects 4D array
 
@@ -108,11 +101,36 @@ def set_autonomer_modus():
 	time.sleep(0.25)
 	Steuerbits_16[0]=0 	#nicht dauerhaft auf 1 steuern, sonst kann der ST selber den
 	print("|...Befehl autonomer Modus gesendet")			#autonomen modus nicht unterbrechen
+	
+	
+def set_manueller_modus():
+	global Steuerbits_16
+	Steuerbits_16[1]=1 
+	time.sleep(0.25)
+	Steuerbits_16[1]=0 	#nicht dauerhaft auf 1 steuern, sonst kann der ST selber den
+	print("|...Befehl manueller Modus gesendet")			#autonomen modus nicht unterbrechen
 
 
 def lese_von_ST():
+	global Empfang
+	Empfang= Kommunikation.empfangeVonST()
 	
-	return Kommunikation.empfangeVonST()
+	return Empfang
 
+def set_Gaspedal_Stellung(soll_Stellung):
+	
+	global Geschwindigkeit
+	Geschwindigkeit=soll_Stellung
+	print(Geschwindigkeit)
+
+def show_Frame():
+	global frame
+	while True:
+		try: # bevor der autonome modus nicht gestartet wird gibt es noch kein bild, da die hauptschelife noch nicht los läuft		
+			cv2.imshow("Aktuelles Bild", frame)# preprocesstes Bild anzeigen
+			key = cv2.waitKey(1) & 0xFF # Aktualisiert Bild Anzeige
+		except:
+			pass
+		
 
   

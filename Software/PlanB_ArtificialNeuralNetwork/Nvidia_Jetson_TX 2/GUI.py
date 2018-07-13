@@ -2,7 +2,7 @@ from appJar import gui
 
 import _thread
 #import driveGUI
-from driveGUI import calc_steering,reset_stop_flag,set_stop_flag,set_autonomer_modus,lese_von_ST
+from driveGUI import calc_steering,reset_stop_flag,set_stop_flag,set_autonomer_modus,set_manueller_modus,lese_von_ST,set_Gaspedal_Stellung,show_Frame
 app = gui("control panel","550x550")
 
 
@@ -72,12 +72,15 @@ def pressStart(button):
 
 
 def pressModus(button):
-	set_autonomer_modus()
+	if not Status: #wenn manueller modus
+		set_autonomer_modus()
+	else:
+		set_manueller_modus()
 
 ##################################################################################################
 
-
-
+def pressGaspedal(button):
+	set_Gaspedal_Stellung(app.getScale("Gaspedal"))
 
 
 ##################################################################################################
@@ -85,12 +88,16 @@ def pressModus(button):
 ##################################################################################################
 
 def aktualisiere_Gui_mit_Daten_von_ST():
+	global Status
 	while True:	
 		UartEmpfang=lese_von_ST()
-		if UartEmpfang['Bit_Modus_manuell_oder_autonom']:
-			app.setButtonBg("Modus", "LimeGreen")	
-		if not UartEmpfang['Bit_Modus_manuell_oder_autonom']:
-			app.setButtonBg("Modus", "LightCoral")	
+		Status=UartEmpfang['Bit_Modus_manuell_oder_autonom']
+		if Status:
+			app.setButtonBg("Modus", "LimeGreen")
+			app.setButton("Modus", "Stoppe autonomen Modus")
+		if not Status:
+			app.setButtonBg("Modus", "LightCoral")
+			app.setButton("Modus", "Starte autonomen Modus")
 
 
 
@@ -115,14 +122,33 @@ app.addButtons(["Start Model"], pressStart,1,1,0)
 app.getButtonWidget("Start Model").config(font="Helvetica 12")
 app.setButtonBg("Start Model", "LightCoral")
 
-app.addButtons(["Modus"], pressModus,2,0,0)
+
+## Slider zum steuern der Geschwindigkeit
+
+app.addScale("Gaspedal")
+app.setScale("Gaspedal", 10, callFunction=True)
+app.setScaleChangeFunction("Gaspedal", pressGaspedal)
+app.setScaleRange("Gaspedal" ,0, 100, curr=12)
+app.showScaleValue("Gaspedal", show=True)
+app.getScale("Gaspedal")
+app.showScaleIntervals("Gaspedal", 25)
+
+## Button zum Starten des autonomen Modus
+app.addButtons(["Modus"], pressModus,2,1,0)
 app.getButtonWidget("Modus").config(font="Helvetica 12")
 app.setButton("Modus", "Starte autonomen Modus")
 app.setButtonBg("Modus", "LightCoral")
 
 
 
-#app.slider(Geschwindigkeit, value=0)
+
+
+
+
+
+
+#_thread.start_new_thread( show_Frame, () ) # auf seperaten Thread das aktuelle input Bild ins netz zeigen... muss aber parallel zur Hauptschleife in der driveGUI.py laufen, sonst wird die Hauptschleife langsamer
+
 
 _thread.start_new_thread( aktualisiere_Gui_mit_Daten_von_ST, () ) #soll parallel immer laufen und Gui aktualisieren
 

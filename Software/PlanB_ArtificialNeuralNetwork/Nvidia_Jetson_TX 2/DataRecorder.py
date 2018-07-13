@@ -18,33 +18,29 @@ frameCounter=0
 import os 
 # Suche nach schon bestehender csv datei
 dir_path = os.path.dirname(os.path.realpath(__file__))
-dir_pathD =dir_path+"/data/"
-
-print(dir_pathD + "driving_log.csv")
-
-if os.path.isfile(dir_pathD + "driving_log.csv"):
+dir_pathF =dir_path+"/Features/"
+if os.path.isfile(dir_pathF + "FahrtLog.csv"):
 	ExistsFahrtLog=True
-	print("schon da")
 else:
 	ExistsFahrtLog=False
 
 # erzeuge default save folder, wenn nicht existiert
 
 #dir_path = os.path.dirname(os.path.realpath(__file__))
-dir_pathDI =dir_pathD+"IMG/"
-if not os.path.exists(dir_pathDI):
+dir_pathFI =dir_pathF+"IMG/"
+if not os.path.exists(dir_pathFI):
 	print("|...Kein default Save Ordner gefunden, erzeuge neuen")    
-	os.makedirs(dir_pathDI)
+	os.makedirs(dir_pathFI)
 
 
 
 
-print (dir_pathDI)
+print (dir_pathFI)
 
 
 # erzeuge leere Log Datei
 import csv
-#with open('driving_log.csv', 'w', newline='') as csvfile:
+#with open('FahrtLog.csv', 'w', newline='') as csvfile:
 #	Logger = csv.writer(csvfile, delimiter=' ',quotechar=',', quoting=csv.QUOTE_MINIMAL)
 	
 
@@ -75,7 +71,7 @@ def pressRecordFunction(button):
 	global frameCounter
 	global ExistsFahrtLog
 	global dir_path
-	global dir_pathD
+	global dir_pathF
 
 	
 	if button == "Start":
@@ -87,12 +83,12 @@ def pressRecordFunction(button):
 		if (ExistsFahrtLog) and (not Pause):
 			print("exists and not pause")			
 
-			with open(str(dir_pathD) +"/driving_log.csv", 'rb') as existcsvfile:
+			with open(str(dir_pathF) +"/FahrtLog.csv", 'rb') as existcsvfile:
 				row_count = sum(1 for row in existcsvfile)  # fileObject is your csv.reader
 				print("|... Datensätze gefunden : " + str(row_count))
 				
 
-			DatenAnhaengen=app.okBox("Obacht Datei existiert schon", "Im angegebenen Pfad existert schon eine driving_log.csv\n\n"+ str(row_count) +" Datensätze wurden gefunden, soll dieser Datensatz erweitert werden?", parent=None)	
+			DatenAnhaengen=app.okBox("Obacht Datei existiert schon", "Im angegebenen Pfad existert schon eine FahrtLog.csv\n\n"+ str(row_count) +" Datensätze wurden gefunden, soll dieser Datensatz erweitert werden?", parent=None)	
 
 			if not DatenAnhaengen:
 				return  # stoppen, wenn cancel geklickt wurde
@@ -157,12 +153,12 @@ def pressRecordFunction(button):
 def pressChangeDirectoryFunction(button):				#TODO checken ob csv schon da is
 	print("|...Neuen Speicherort setzen")	
 	global dir_path
-	global dir_pathD
-	global dir_pathDI		
+	global dir_pathF
+	global dir_pathFI		
 	global ExistsFahrtLog
-	Puffer_dir_path=app.directoryBox(title="SaveData", dirName=None, parent=None)
+	Puffer_dir_path=app.directoryBox(title="SaveFeatures", dirName=None, parent=None)
 	
-	if (str(Puffer_dir_path) == "None") or(str(Puffer_dir_path) =="()"):		#wenn man das[x] anklickt oder [cancel]
+	if (str(Puffer_dir_path) == "None") or(str(Puffer_dir_path) =="()"):		#wenn man das[x] anklickt
 					
 			print("|...	abgebrochen")
 			pass
@@ -174,15 +170,15 @@ def pressChangeDirectoryFunction(button):				#TODO checken ob csv schon da is
 		
 
 		dir_path=Puffer_dir_path
-		dir_pathD=dir_path+"/data/"
-		dir_pathDI=dir_pathD+"IMG/"	
+		dir_pathF=dir_path+"/Features/"
+		dir_pathFI=dir_pathF+"IMG/"	
 		
 		
-		#dir_path +="/data/"
+		#dir_path +="/Features/"
 		# Suche nach schon bestehender csv datei
 		#dir_path = os.path.dirname(os.path.realpath(__file__))
 
-		if os.path.isfile(dir_pathD + "driving_log.csv"): # suche nach einer schon existierenden log datei
+		if os.path.isfile(dir_pathF + "FahrtLog.csv"):
 			ExistsFahrtLog=True
 		else:
 			ExistsFahrtLog=False
@@ -191,9 +187,9 @@ def pressChangeDirectoryFunction(button):				#TODO checken ob csv schon da is
 
 		#dir_path = os.path.dirname(os.path.realpath(__file__))
 		
-		if not os.path.exists(dir_pathD):
+		if not os.path.exists(dir_pathF):
 			print("|...Kein default Save Ordner gefunden, erzeuge neuen")    
-			os.makedirs(dir_pathDI)
+			os.makedirs(dir_pathFI)
 
 		
 		app.setLabel("SaveDirectory",dir_path)
@@ -212,19 +208,18 @@ def pressChangeDirectoryFunction(button):				#TODO checken ob csv schon da is
 def captureFrames():
 	global frameCounter	
 	global dir_path
-	global dir_pathDI
+	global dir_pathFI
 	global ExistsFahrtLog
-	
 	#global Pause
 	#global Stop
 	#global FPS #nicht noetig, globale variablen muessen nur ein mal definiert werden
 	
-	print("|...Starte Aufnahme mit " + FPS +" Fps")	 # Obacht, es ist nicht möglich de FPS zu ändern wenn man auf pause gedrückt hat
+	print("|...Starte Aufnahme mit " + FPS +" Fps")	
 	delayTime=1.0/float(FPS)
 	
 	# Erzeuge leere csv Datei und schreibe daten da rein	
-	#with open('data/driving_log.csv', 'w', newline='') as csvfile:
-	with open(str(dir_pathD) +"/driving_log.csv", 'a', newline='') as csvfile:	
+	#with open('Features/FahrtLog.csv', 'w', newline='') as csvfile:
+	with open(str(dir_pathF) +"/FahrtLog.csv", 'a', newline='') as csvfile:	
 		Logger = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
 		ExistsFahrtLog=True # damit oben gecheckt werden kann ob die datei schon da ist, dass man sachen anhaengen kann
 		
@@ -238,7 +233,7 @@ def captureFrames():
 				EmpfangVonST=Kommunikation.empfangeVonST()					# Uart Daten einlesen
 					
 				frame=cv2.resize(frame, (320,240))
-				framePathAndName=str(dir_pathDI)+"frame"+ str(frameCounter) +".jpg"
+				framePathAndName=str(dir_pathFI)+"frame"+ str(frameCounter) +".jpg"
 				
 				cv2.imwrite(framePathAndName, frame)
 				
@@ -302,8 +297,8 @@ app.getButtonWidget("Change").config(font="Helvetica 12")
 
 # link the buttons to the function called press
 
-app.addSpinBoxRange("FPS", 1,6,1,0,6).config(font="Helvetica 12") # abspeichern geht leider nicht schneller als 5fps :(
-app.setSpinBox("FPS", 6, callFunction=True) 
+app.addSpinBoxRange("FPS", 1,30,1,0,6).config(font="Helvetica 12")
+app.setSpinBox("FPS", 7, callFunction=True)
 
 
 #app.addLabelEntry("FPS",1,0,1)
