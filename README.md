@@ -5,8 +5,8 @@ _This is a student project. Two other students and I built and wrote software fo
 ### Schematic overview:
 ![alt](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.jpg)
 
-
-
+___
+<br><br>
 ## Plan A,  Computer Vision
 ### Concept:
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_ideal2.png "CVgood")
@@ -26,7 +26,8 @@ Even with a lot of optimization the information loss was too big to work properl
 ### Conclusion Plan A:
 Classic computer vision is strong, when it comes to debugging. The whole process follows a strict known algorithm that can be tweaked precisely. However, this approach lacks, when it comes to abstraction. If the input lacks in information or is slightly different the program fails.
 
-
+___
+<br><br>
 
 ## Plan B,  Artificial Neural Net
 _This Behavioral Cloning and End to End approach is heavily inspired by:_ 
@@ -41,7 +42,11 @@ _This Behavioral Cloning and End to End approach is heavily inspired by:_
 * take the track to different environments, to change the surrounding
 2. Record frames meanwhile from the camera, save the corresponding steering angle and speed from the human driver to a csv file
 3. Train the model from NVIDIA to learn what kind of picture leads to which steering angle
+
 4. Deploy the trained model on the physical car
+
+
+
 
 ### Conclusion Plan B
 The main key to success is DATA! A diverse training dataset leads to a more stable driving behavior. 
