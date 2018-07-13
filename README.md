@@ -37,9 +37,10 @@ _This Behavioral Cloning is heavily inspired by:_
 ### Concept:
 
 1. Let a human drive the rc car on the course multiple times as good as he can under different conditions.
-*harsh light conditions, dark and bright
-*cover parts of the track randomly or adding "noise" 
-*take the track to different environments, to change the surrounding
+* harsh light conditions, dark and bright
+* cover parts of the track randomly or adding "noise" 
+* take the track to different environments, to change the surrounding
+
 2. Record frames meanwhile from the camera, save the corresponding steering angle and speed from the human driver to a csv file
 3. Train the model from NVIDIA to learn what kind of picture leads to which steering angle
 4. Deploy the trained model on the physical car
