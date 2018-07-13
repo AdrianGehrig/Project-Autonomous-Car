@@ -1,14 +1,20 @@
 # Project Autonomous Car
 _This is a student project. Two other students and me built and wrote software for a self driving rc car._
-[Thumbnail]: https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Auto_auf_Strecke.PNG "Thumbnail"
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Auto_auf_Strecke.PNG "Thumbnail")
 
 Schematic overview:
-[electrical_concept]: https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.pdf "electrical_concept"
+<object data="https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.pdf " type="application/pdf" width="700px" height="700px">
+    <embed src="http://yoursite.com/the.pdf">
+        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
+    </embed>
+</object>
+
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.pdf "electrical_concept")
 
 
 
 ## Plan A,  (Computer Vision)
-[CVgood]: https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_ideal2.png"CVgood"
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_ideal2.png"CVgood")
 * The Idea:
 1. warp perspective into bird's-eye view
 2. convert to binary image
@@ -21,7 +27,7 @@ This allows tracking of the middle lane, if it wanders over the time.
 * Where we failed:
 Unpredictable white sun reflections on the course, that swallowed the white lane markings. 
 Even with a lot of optimisation the information loss was too big to work properly with Plan A.
-[CVfails]: https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_Spiegelung.png"CVfails"
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_Spiegelung.png"CVfails")
 
 
 
