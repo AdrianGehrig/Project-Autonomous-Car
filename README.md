@@ -3,11 +3,7 @@ _This is a student project. Two other students and me built and wrote software f
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Auto_auf_Strecke.PNG "Thumbnail")
 
 Schematic overview:
-<object data="https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.pdf " type="application/pdf" width="700px" height="700px">
-    <embed src="http://yoursite.com/the.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="http://yoursite.com/the.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
+<img src="https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.pdf" alt="some text"  width="4200" height="4200">
 
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/%C3%9Cbersicht.pdf "electrical_concept")
 
