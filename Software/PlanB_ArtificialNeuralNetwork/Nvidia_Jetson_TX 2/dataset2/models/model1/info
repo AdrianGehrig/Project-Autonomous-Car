@@ -1,0 +1,5 @@
+Retrained Model aus dataset1/models/model9/
+20000 samples pro epoche
+batchsize 40
+epochen 210
+learning rate 5.0e-5
