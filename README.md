@@ -30,19 +30,18 @@ ___
 <br><br>
 
 ## Plan B,  Artificial Neural Net
-_This Behavioral Cloning and End to End approach is heavily inspired by:_ 
+_This Behavioral Cloning is heavily inspired by:_ 
 * _["How to Simulate a Self-Driving Car
 " from Siraj Raval]()_
 * _["End to End Learning for Self-Driving Cars" NVIDIA from NVIDIA](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)_
 ### Concept:
 
 1. Let a human drive the rc car on the course multiple times as good as he can under different conditions.
-* harsh light conditions, dark and bright
-* cover parts of the track randomly or adding "noise" 
-* take the track to different environments, to change the surrounding
+*harsh light conditions, dark and bright
+*cover parts of the track randomly or adding "noise" 
+*take the track to different environments, to change the surrounding
 2. Record frames meanwhile from the camera, save the corresponding steering angle and speed from the human driver to a csv file
 3. Train the model from NVIDIA to learn what kind of picture leads to which steering angle
-
 4. Deploy the trained model on the physical car
 
 
