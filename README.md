@@ -30,7 +30,7 @@ ___
 <br><br>
 
 ## Plan B,  Artificial Neural Net
-_This Behavioral Cloning is heavily inspired by:_ 
+_This Behavioral Cloning approach is heavily inspired by:_ 
 * _["How to Simulate a Self-Driving Car
 " from Siraj Raval]()_
 * _["End to End Learning for Self-Driving Cars" NVIDIA from NVIDIA](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)_
@@ -54,5 +54,5 @@ The best result was achieved with the dataset consisting of 80% driving in the m
 Plan B is more kind of a "black box “, when it comes to debugging. Because a wrong driving behavior can't be traced back to a specific line of code in the trained model.
 However, this approach is vastly superior than Plan A when it comes to the random sun reflections and noise. Even if the lane markings are just barely visible the car manages it to stay in the correct lane surprisingly well.
 
-![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/InAction.mp4
+![Car in action](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/InAction.mp4
 "Video")
