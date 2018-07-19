@@ -1,5 +1,5 @@
 # Project Autonomous Car
-_This is a student project. Two other students and I built and wrote software for a self-driving rc car._
+_This was a student project we built and wrote software for a self-driving rc car._
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Auto_auf_Strecke.PNG "Thumbnail")
 
 ### Schematic overview:
