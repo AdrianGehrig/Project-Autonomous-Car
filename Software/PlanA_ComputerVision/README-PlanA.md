@@ -5,10 +5,9 @@ _This is a quick startup guide for Plan A, the Computer Vision Approach._
 1. NVIDIA Jetson
 
    _Used for Image Processing and Calculating of the steering angle._
-
 2. STM32 F4 Part (Identical in PlanA and PlanB)
 
-  _Used for Hardware communication and basic safety features._
+   _Used for Hardware communication and basic safety features._
 
 
 
