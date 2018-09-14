@@ -24,10 +24,10 @@ ___
 
 
 ## 1.1 Normal starting procedure
-_If nothing has changed and the current
+_If nothing has changed and the current state is still as we left it in SS18 this will work:_
 
 1. Boot the Jetson [Red Power Button] and login with Username: Nvidia, PW: nvidia
-2. Open the explorer and navigate into the "PlanA" directory. All the files, listed in the GitHub subfolder "PlanA_ComputerVision" should still be on the Jetson. If not download them from this GitHub repository.
+2. Open the explorer and navigate into the "PlanA" directory. All the files listed in the GitHub subfolder "PlanA_ComputerVision" should still be on the Jetson. If not, download them from this GitHub repository.
 3. Open a Command promt window by right klicking and selecting "start command window here" in the explorer.
 4. Type in **python main.py** and hit enter...the GUI should start.
 
@@ -39,6 +39,17 @@ set it to "OPTIMIERUNG_EINGESCHALTET = False" , save the file and retry.
 
 5. Start the autonomous mode by pressing [9] on the keyboard (Even works though SSH connection) or the blue button on the STM32F4 Board, located on the back of the car.
 6. Leave the autonomous mode by pressing pressing [9] on the keyboard or by touching the steering wheel or the accellerator on the transmitter.
+
+## 1.2 Overview of the files
+## 1.2.1 KommunikationUart.py
+This file is for the UART communication between the Jetson and the STM32F4 Board.
+
+It consists of a configuration part, where some settings are made to that the Jetson side is configured right.
+
+A sending part, that is able to send 4 floats and 16 seperate bits. There are some reserves left for furhter upgrades.
+
+A reading part, that is able to receive 8 floats and 16 seperate bits. There are some reserves left for furhter upgrades.
+
 
 
 # 2. STM32 F4 Part (Identical in PlanA and PlanB)
