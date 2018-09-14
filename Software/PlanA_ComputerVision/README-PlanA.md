@@ -5,6 +5,7 @@ _This is a quick startup guide for Plan A, the Computer Vision Approach._
 1. NVIDIA Jetson
 
    _Used for Image Processing and Calculating of the steering angle._
+   
 2. STM32 F4 Part (Identical in PlanA and PlanB)
 
    _Used for Hardware communication and basic safety features._
@@ -14,7 +15,7 @@ _This is a quick startup guide for Plan A, the Computer Vision Approach._
 ___
 <br><br>
 
-## 1. NVIDIA Jetson Part
+# 1. NVIDIA Jetson Part
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_ideal2.png "CVgood")
 ### WARNINGS:
 * ALWAYS connect the Low Voltage Buzzer to the lipo, **while driving** to get audio feedback, when to change the lipos
@@ -22,9 +23,9 @@ ___
 * ALWAYS keep the transmitter in your hands, to disable the autonomous mode at any moment. By touching the steering wheel or the accellerator, the car will initiate an emergency break for one second. After this break the car returns to manual mode.
 
 
+## 1.1 Run the Python file
 
 
 
-
-## 2. STM32 F4 Part (Identical in PlanA and PlanB)
+# 2. STM32 F4 Part (Identical in PlanA and PlanB)
 
