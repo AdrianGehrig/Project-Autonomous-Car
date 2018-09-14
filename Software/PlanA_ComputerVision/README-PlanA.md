@@ -2,10 +2,19 @@
 
 _This is a quick startup guide for Plan A, the Computer Vision Approach._
 
-_1. NVIDIA Jetson Part_
+1. NVIDIA Jetson
+
+
+⋅⋅⋅Used for Image Processing and Calculating of the steering angle.
 
 _2. STM32 F4 Part (Identical in PlanA and PlanB)_
 
+⋅⋅⋅Used for Hardware communication and basic safety features.
+
+
+4. And another item.
+
+⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
 
 ___
@@ -16,6 +25,7 @@ ___
 ### WARNINGS:
 * ALWAYS connect the Low Voltage Buzzer to the lipo, **while driving** to get audio feedback, when to change the lipos
 * ALWAYS disconnect the Lipo after you're **done driving** the car. Also disconnect the Low Voltage Buzzer as it consumes energy aswell. Otherwise the lipo will be discharged for days. If the Lipo is deeply discharged, it will get puffy and damaged permanently. If the lipo is visibly swollen, you should not charge it anymore! 
+* ALWAYS keep the transmitter in your hands, to disable the autonomous mode at any moment. By touching the steering wheel or the accellerator, the car will initiate an emergency break for one second. After this break the car returns to manual mode.
 
 
 
