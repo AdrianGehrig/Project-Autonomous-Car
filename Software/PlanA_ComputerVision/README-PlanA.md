@@ -105,6 +105,11 @@ The procedure is as follows:
 
 
 
+
+
+___
+<br><br>
+
 # 2. STM32 F4 Part (Identical in PlanA and PlanB)
 The microcontroller is programmed in Simulink. The C code for the microcontroller is generated and downloaded with the click of a button! Waijung is a very handy library, that has some prebuilt blocks for acessing the microcontrollers hardware. E.g. a block for sending PWM signals or communicating via UART. 
 
@@ -116,6 +121,10 @@ For further instructions on istallation, Getting Started, Tips and Tricks please
 After correctly installed the drivers and the Waijung package, open STDiscovery2016a.slx in Simulink.
 
 Simulink is a graphical programming lauguage, individual program parts can be organized in subsystems. Waijung blocks for reading data are located on the left side. For processing the data, the infromation is carried via black arrows from one block to another. Logical or calculating operations are done in the middle section. Finally the Waijung output blocks are located on the right side.
+
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Waijung%20overview.PNG)
+
+
 
 ### (1) Global Variables
 They are read/writable in every subsystem underneath. They are used multiple times and some will be predifined once in **(6).**
@@ -141,10 +150,23 @@ The Data, that is read in via the Waijung UART blocks will be wirtten to global 
 The global sending variables will be send via the Waijung UART blocks to the Jetson. 
 
 ### (7) Status LEDs
-The Status LED pattern for the autonomous and manual mode is generated here
+The Status LED pattern for the autonomous and manual mode is generated here.
+
+### (8) Power Distribution Unit
+Not implemented yet. The idea was to read the current consumption of some FETs an disable them, if the consumption reaches a certain limit
+
+### (9) Debug
+This subsystem is used when debugging the microcontroller over an FDTI connection. An FDTI Adapter or an Arduino (["as seen here on ther very bottom here"](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Matlab%20zu%20Discovery%20Board.docx "Word Document")) can be used for that.
+Some Varaibles can be sent back for debugging to a PC. Or an event can be triggered, when sending a certain Ascii caracter from the PC to the STM32F4.
 
 
+### (10) Build Model
+Connect the Microcontroller to the PC via USB.
+Press this button to compile the the Simulink program to C code and download it to the STM32F4.
 
-
+## 2.2 Some hints
+* Do not use "äöü" or any fancy symbols underneath Waijung blocks...the compiler just throws a cryptic error message and won't compile
+* Do not use hardware ports multiple times in Waijung blocks, always keep an eye on your used ports, like(["this visio drawing"](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/ST_Pinout_und_Anschl%C3%BCsse.pdf))
+* Some ports are selectable in Waijung for certain features, but the hardware does not support it. The compiler just won't compile, but the error message is misleading and cryptic.
 
 
