@@ -106,7 +106,22 @@ The procedure is as follows:
 
 
 # 2. STM32 F4 Part (Identical in PlanA and PlanB)
-The microcontroller is programmed in Simulink. The C code for the microcontroller is generated and downloaded with the click of a button! Waijung is a very handy library, that has some prebuilt blocks for acessing the microcontrollers hardware. E.g. a block for sending PWM signals or communicating via UART. For further instructions on istallation, Getting Started, Tips and Tricks please read:
+The microcontroller is programmed in Simulink. The C code for the microcontroller is generated and downloaded with the click of a button! Waijung is a very handy library, that has some prebuilt blocks for acessing the microcontrollers hardware. E.g. a block for sending PWM signals or communicating via UART. 
 
-![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Matlab zu Discovery Board.docx "Word Document")
+For further instructions on istallation, Getting Started, Tips and Tricks please read:
+
+["Matlab zu Discovery Board.docx" in the documentation path](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Matlab%20zu%20Discovery%20Board.docx "Word Document")
+
+## 2.1 Overview
+After correctly installed the drivers and the Waijung package, open STDiscovery2016a.slx in Simulink.
+
+Simulink is a graphical programming lauguage, individual program parts can be organized in subsystems. Waijung blocks for reading data are located on the left side. For processing the data, the infromation is carried via black arrows from one block to another. Logical or calculating operations are done in the middle section. Finally the Waijung output blocks are located on the right side.
+
+### (1) Global Variables
+They are read/writable in every subsystem underneath. They are used multiple times and some will be predifined once in **(6).**
+
+An alternative way would be to run a matlab script in **(6)** , were all the variables would be declaired and some predefined.
+
+### (6) Initialisation
+Some global Variables are predefined
 
