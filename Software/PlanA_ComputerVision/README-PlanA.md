@@ -123,5 +123,28 @@ They are read/writable in every subsystem underneath. They are used multiple tim
 An alternative way would be to run a matlab script in **(6)** , were all the variables would be declaired and some predefined.
 
 ### (6) Initialisation
-Some global Variables are predefined
+Some global Variables are predefined here
+
+### (2) Waijung Initialisation Block
+This block needs to be in the top layer, when Waijung blocks are used
+
+### (3) Reading actual velocity
+A hall sensor is processed here and the velocity is calculated. This variable will be sent back to the Jetson, and displayed in the GUI
+
+### (4) Actuators
+motor and servo logic is located in this subsystem. Also the safety feature for disabling the autonomous mode, when touching the steering wheel or the accelerator on the Transmitter is found here.
+
+At the moment two bits are send to the STM32F4 over UART, "Computer Vision Mode" and "Neural Net Mode". These bits enable or disable a certain feature in the Simulink Program...This can be confusing. In a future version, the microcontroller should only get a single steering and velocity command over UART (2x float) for better readability.
+
+### (5) Communication
+The Data, that is read in via the Waijung UART blocks will be wirtten to global receiving variables.
+The global sending variables will be send via the Waijung UART blocks to the Jetson. 
+
+### (7) Status LEDs
+The Status LED pattern for the autonomous and manual mode is generated here
+
+
+
+
+
 
