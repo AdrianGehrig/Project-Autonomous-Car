@@ -39,13 +39,19 @@ _If you want to start with recording a new Dataset, start this list at point 1._
 3. Open the explorer and navigate into the "PlanB" directory. All the files listed in the GitHub subfolder "PlanB_ArtificialNeuralNetwork" should still be on the Jetson. If not, download them from this GitHub repository.
 4. Open a Command promt window by right clicking and selecting "start command window here" in the explorer.
 
-5.Type in **python3 datarecorder.py** and hit enter...the recorder GUI should start.
+5. Type in **python3 datarecorder.py** and hit enter...the recorder GUI should start.
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Datenrecorder.png)
 
 6. Click [change], to change the folder, where the dataset will be recorded to. The current path is shown on the left.
 7. Get ready, to drive the car and click [Start]. If the program detects an existing dataset in the selected path, it asks you, if you want to extend or overwrite this existing dataset. Recording of frames and associated steering angle and accelerator data from the remote controller will start.
-8. Press [Pause], if you want to pause your recordings, in order to record another scenario. Hit Start again to continue.
+8. Press [Pause], if you want to pause your recordings, in order to record another scenario. Hit [Start] again to continue.
 9. Press [Stop] to stop your recordings.
+10. A Dataset was created and the model of the artificial neural net can now be trained on it. Open **model.py** and play around with the Hyperparameters in the ArgumentParser, e.g. 'number of epochs' or 'learning rate'.
+11. Start the training procedure by calling the following command: "python3 model.py dataset2" ...where "dataset2" is the folder name, where the dataset has been recorded to. This training may take some hours/days according to your settings in **model.py**. Training in the would be more time efficient, but we never tried it.
+12. When training is done and everything went successfully, there should be some new files in the current directory. Those are the trained models and some logging files. The file with the highest number is the best trained model. Cut those files and paste them into a new subfolder under e.g. "dataset2".  
+13. Save a new file called "info" in that subfolder and write down, what settings you have made in **model.py** for this training session.
+14. Show the learning results by opening **plot_history.py**, change the "path" variable at line 4 to the path, where you've pasted the new files above.
+15. Save and run **plot_history.py**. the logging files are visualized and saved as .png in the subfolder for you for further inspection.
 
 
 ???. Type in **python3 GUI.py** and hit enter...the GUI should start.
