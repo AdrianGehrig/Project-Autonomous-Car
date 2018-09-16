@@ -27,7 +27,7 @@ ___
 ## 1.1 Normal starting procedure
 _If nothing has changed and the current state is still as we left it in SS18 this will work:_
 
-_If you want to start right away start this list at point ???_
+_If you want to start driving right away, without recording a dataset and training a model, start this list at point 15_
 
 _If you want to start with recording a new Dataset, start this list at point 1._
 
@@ -51,10 +51,11 @@ _If you want to start with recording a new Dataset, start this list at point 1._
 12. When training is done and everything went successfully, there should be some new files in the current directory. Those are the trained models and some logging files. The file with the highest number is the best trained model. Cut those files and paste them into a new subfolder under e.g. "dataset2".  
 13. Save a new file called "info" in that subfolder and write down, what settings you have made in **model.py** for this training session.
 14. Show the learning results by opening **plot_history.py**, change the "path" variable at line 4 to the path, where you've pasted the new files above.
-15. Save and run **plot_history.py**. the logging files are visualized and saved as .png in the subfolder for you for further inspection. The aim is to get the "test" loss as low as possible. It should look something like this:
+
+Save and run **plot_history.py**. the logging files are visualized and saved as .png in the subfolder for you for further inspection. The aim is to get the "test" loss as low as possible. It should look something like this:
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/HistoryLossFigure.png)
 
-???. Type in **python3 GUI.py** and hit enter...the GUI should start.
+15. Type in **python3 GUI.py** and hit enter...the GUI for selecting and running a trained model should start.
 
    If the console shows some kind of "streamer Error" you need to unplug and replug the USB camera.
    
