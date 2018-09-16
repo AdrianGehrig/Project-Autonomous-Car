@@ -52,13 +52,15 @@ _If you want to start with recording a new Dataset, start this list at point 1._
 13. Save a new file called "info" in that subfolder and write down, what settings you have made in **model.py** for this training session.
 14. Show the learning results by opening **plot_history.py**, change the "path" variable at line 4 to the path, where you've pasted the new files above.
   Save and run **plot_history.py**. the logging files are visualized and saved as .png in the subfolder for you for further inspection.   The aim is to get the "test" loss as low as possible. It should look something like this:
+  
   ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/HistoryLossFigure.png)
 
 15. Type in **python3 GUI.py** and hit enter
   ...the GUI for selecting and running a trained model should start.
    ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Control%20panel.PNG) 
-16. (1) Klick [SelectModel] and browse to the trained model file, you want to deploy. The selected model path will be displayed in the GUI afterwards (2).
+16.  Klick (1) [SelectModel] and browse to the trained model file, you want to deploy. The selected model path will be displayed in the GUI afterwards (2).
 17. Klick [Start Model] (3)
+   
    If the console shows some kind of "streamer Error" you need to unplug and replug the USB camera.
    
    If tensorflow throws errors "...could not allocate...." restart the process
@@ -66,8 +68,8 @@ _If you want to start with recording a new Dataset, start this list at point 1._
    If everything goes right "Feuer frei! -->" will be displayed in the console.
    
 18. Adjust the speed in percentage with the slider (4)
-19. Start the autonomous mode by klicking [Starte autonomen Modus](5). The button will turn green, if everything went right and the car will start driving by it self.
-20. If the button is pressed again or if the steering wheel or the accellerator on the remote contorl is touched, the car will initiate an emergency break for one second. After this break the car returns to manual mode.
+19. Start the autonomous mode by klicking (5) [Starte autonomen Modus] The button will turn green, if everything went right and the car will start driving by it self.
+20. If the button is pressed again or if the steering wheel or the accellerator on the remote control is touched, the car will initiate an emergency break for one second. After this break the car returns to manual mode.
 
 
 
