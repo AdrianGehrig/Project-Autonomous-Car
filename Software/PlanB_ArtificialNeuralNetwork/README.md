@@ -12,6 +12,7 @@ _This is a quick startup guide for Plan B, the Artificial Neural Network Approac
 
 
 
+
 ___
 <br><br>
 
@@ -26,14 +27,32 @@ ___
 ## 1.1 Normal starting procedure
 _If nothing has changed and the current state is still as we left it in SS18 this will work:_
 
-1. Boot the Jetson [Red Power Button] and login with Username: Nvidia, PW: nvidia
-2. Open the explorer and navigate into the "PlanB" directory. All the files listed in the GitHub subfolder "PlanB_ArtificialNeuralNetwork" should still be on the Jetson. If not, download them from this GitHub repository.
-3. Open a Command promt window by right clicking and selecting "start command window here" in the explorer.
-4. Type in **python drive.py** and hit enter...the GUI should start.
+_If you want to start right away start this list at point ???_
+
+_If you want to start with recording a new Dataset, start this list at point 1._
+
+
+
+1. Setup a test environment an get ready to drive the car manually via the remote control as perfect as possible.
+
+2. Boot the Jetson [Red Power Button] and login with Username: Nvidia, PW: nvidia
+3. Open the explorer and navigate into the "PlanB" directory. All the files listed in the GitHub subfolder "PlanB_ArtificialNeuralNetwork" should still be on the Jetson. If not, download them from this GitHub repository.
+4. Open a Command promt window by right clicking and selecting "start command window here" in the explorer.
+
+5.Type in **python3 datarecorder.py** and hit enter...the recorder GUI should start.
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Datenrecorder.png)
+
+6. Click [change], to change the folder, where the dataset will be recorded to. The current path is shown on the left.
+7. Get ready, to drive the car and click [Start]. If the program detects an existing dataset in the selected path, it asks you, if you want to extend or overwrite this existing dataset. Recording of frames and associated steering angle and accelerator data from the remote controller will start.
+8. Press [Pause], if you want to pause your recordings, in order to record another scenario. Hit Start again to continue.
+9. Press [Stop] to stop your recordings.
+
+
+???. Type in **python3 GUI.py** and hit enter...the GUI should start.
 
    If the console shows some kind of "streamer Error" you need to unplug and replug the USB camera.
    
-   If tensorflow throws a error "...could not allocate...." restart the process
+   If tensorflow throws errors "...could not allocate...." restart the process
 
 
 
