@@ -58,14 +58,14 @@ _If you want to start with recording a new Dataset, start this list at point 1._
 15. Type in **python3 GUI.py** and hit enter
   ...the GUI for selecting and running a trained model should start.
    ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Control%20panel.PNG) 
-16.  Klick (1) [SelectModel] and browse to the trained model file, you want to deploy. The selected model path will be displayed in the GUI afterwards (2).
-17. Klick [Start Model] (3)
+16. Click (1) [SelectModel] and browse to the trained model file, you want to deploy. The selected model path will be displayed in the GUI afterwards (2).
+17. Click [Start Model] (3)
    * If the console shows some kind of "streamer Error" you need to unplug and replug the USB camera.
    * If tensorflow throws errors "...could not allocate...." restart the process
    * If everything goes right "Feuer frei! -->" will be displayed in the console.
    
 18. Adjust the speed in percentage with the slider (4)
-19. Start the autonomous mode by klicking (5) [Starte autonomen Modus] The button will turn green, if everything went right and the car will start driving by it self.
+19. Start the autonomous mode by clicking (5) [Starte autonomen Modus] The button will turn green, if everything went right and the car will start driving by it self.
 20. If the button is pressed again or if the steering wheel or the accellerator on the remote control is touched, the car will initiate an emergency break for one second. After this break the car returns to manual mode.
 
 
