@@ -101,7 +101,7 @@ Used for retraining a trained model on a specific dataset. Retrain with "python3
 ### 1.2.8 [plot_history.py]
 Shows the learning results and saves them to a .png
 ### 1.2.8 [utils.py]
-A helper calass for model.py, that has several training functions in it. e.g. changing the brightness or offset of a frame.
+A helper class for model.py, that has several training functions in it. e.g. changing the brightness or offset of a frame.
 
 
 ___
