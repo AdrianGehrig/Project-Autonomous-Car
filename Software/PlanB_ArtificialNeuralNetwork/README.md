@@ -73,9 +73,37 @@ _If you want to start with recording a new Dataset, start this list at point 1._
 42. Have fun!
 
 ## 1.2 Overview of the files
+### 1.2.1 [DataRecorder.py]
+GUI for recording frames as .jpeg, according steering angle and accelerometer settings into a .csv.
+### 1.2.2 [GUI.py]
+GUI for selecting and running a trained model on the car.
+### 1.2.3 [KommunikationUart.py]
+This file is responsible for the UART communication between the Jetson and the STM32F4 Board. It is used in the main.py as an interface to the STM32F4 board.
+
+It consists of a configuration part, where some settings are made to that the Jetson side is configured right.
+
+A sending part, that is able to send 4 floats and 16 seperate bits. There are some reserves left for further upgrades.
+
+A reading part, that is able to receive 8 floats and 16 seperate bits. There are some reserves left for further upgrades.
+
+### 1.2.4 [drive.py]
+Was used for selecting and running a trained model on the car...use **GUI.py** instead
+
+### 1.2.5 [driveGUI.py]
+Used by GUI.py
+
+### 1.2.5 [kameratest.py]
+Call this one, to see, what the camera stream looks like at the moment.
+### 1.2.6 [model.py]
+Used for training a model on a specific dataset.
+### 1.2.7 [modelRetrain.py]
+Used for retraining a trained model on a specific dataset. Retrain with "python3 modelRetrain.py NameOfTheModel.h5"
+### 1.2.8 [plot_history.py]
+Shows the learning results and saves them to a .png
+### 1.2.8 [utils.py]
+A helper calass for model.py, that has several training functions in it. e.g. changing the brightness or offset of a frame.
 
 
-# TODO
 ___
 <br><br>
 
