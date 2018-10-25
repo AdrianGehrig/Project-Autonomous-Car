@@ -8,6 +8,7 @@ _This was a student project. We built and wrote software for a self-driving rc c
 ___
 <br><br>
 ## Plan A,  Computer Vision
+### [For a "Getting Started with Plan A" click here](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Software/PlanA_ComputerVision/README.md)
 ### Concept:
 ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/OpenCV_ideal2.png "CVgood")
 
@@ -30,6 +31,7 @@ ___
 <br><br>
 
 ## Plan B,  Artificial Neural Net
+### [For a "Getting Started with Plan B" click here](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Software/PlanB_ArtificialNeuralNetwork/README.md)
 _This Behavioral Cloning approach is heavily inspired by:_ 
 * _["How to Simulate a Self-Driving Car
 " from Siraj Raval]()_

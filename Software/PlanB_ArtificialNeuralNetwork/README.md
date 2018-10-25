@@ -12,6 +12,7 @@ _This is a quick startup guide for Plan B, the Artificial Neural Network Approac
 
 
 
+
 ___
 <br><br>
 
@@ -26,23 +27,83 @@ ___
 ## 1.1 Normal starting procedure
 _If nothing has changed and the current state is still as we left it in SS18 this will work:_
 
-1. Boot the Jetson [Red Power Button] and login with Username: Nvidia, PW: nvidia
-2. Open the explorer and navigate into the "PlanB" directory. All the files listed in the GitHub subfolder "PlanB_ArtificialNeuralNetwork" should still be on the Jetson. If not, download them from this GitHub repository.
-3. Open a Command promt window by right clicking and selecting "start command window here" in the explorer.
-4. Type in **python drive.py** and hit enter...the GUI should start.
+_If you want to start driving right away, without recording a dataset and training a model, start this list at point 15_
 
-   If the console shows some kind of "streamer Error" you need to unplug and replug the USB camera.
+_If you want to start with recording a new Dataset, start this list at point 1._
+
+
+
+1. Setup a test environment an get ready to drive the car manually via the remote control as perfect as possible.
+
+2. Boot the Jetson [Red Power Button] and login with Username: Nvidia, PW: nvidia
+3. Open the explorer and navigate into the "PlanB" directory. All the files listed in the GitHub subfolder "PlanB_ArtificialNeuralNetwork" should still be on the Jetson. If not, download them from this GitHub repository.
+4. Open a Command promt window by right clicking and selecting "start command window here" in the explorer.
+
+5. Type in **python3 datarecorder.py** and hit enter...the recorder GUI should start.
+![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Datenrecorder.png)
+
+6. Click [change], to change the folder, where the dataset will be recorded to. The current path is shown on the left.
+7. Get ready, to drive the car and click [Start]. If the program detects an existing dataset in the selected path, it asks you, if you want to extend or overwrite this existing dataset. Recording of frames and associated steering angle and accelerator data from the remote controller will start.
+8. Press [Pause], if you want to pause your recordings, in order to record another scenario. Hit [Start] again to continue.
+9. Press [Stop] to stop your recordings.
+10. A Dataset was created and the model of the artificial neural net can now be trained on it. Open **model.py** and play around with the Hyperparameters in the ArgumentParser, e.g. 'number of epochs' or 'learning rate'.
+11. Start the training procedure by calling the following command: "python3 model.py dataset2" ...where "dataset2" is the folder name, where the dataset has been recorded to. This training may take some hours/days according to your settings in **model.py**. Training in the would be more time efficient, but we never tried it.
+12. When training is done and everything went successfully, there should be some new files in the current directory. Those are the trained models and some logging files. The file with the highest number is the best trained model. Cut those files and paste them into a new subfolder under e.g. "dataset2".  
+13. Save a new file called "info" in that subfolder and write down, what settings you have made in **model.py** for this training session.
+14. Show the learning results by opening **plot_history.py**, change the "path" variable at line 4 to the path, where you've pasted the new files above.
+  Save and run **plot_history.py**. the logging files are visualized and saved as .png in the subfolder for you for further inspection.   The aim is to get the "test" loss as low as possible. It should look something like this:
+  
+  ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/HistoryLossFigure.png)
+
+15. Type in **python3 GUI.py** and hit enter
+  ...the GUI for selecting and running a trained model should start.
+   ![alt text](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Documentation/Control%20panel.PNG) 
+16. Click (1) [SelectModel] and browse to the trained model file, you want to deploy. The selected model path will be displayed in the GUI afterwards (2).
+17. Click [Start Model] (3)
+   * If the console shows some kind of "streamer Error" you need to unplug and replug the USB camera.
+   * If tensorflow throws errors "...could not allocate...." restart the process
+   * If everything goes right "Feuer frei! -->" will be displayed in the console.
    
-   If tensorflow throws a error "...could not allocate...." restart the process
+18. Adjust the speed in percentage with the slider (4)
+19. Start the autonomous mode by clicking (5) [Starte autonomen Modus] The button will turn green, if everything went right and the car will start driving by it self.
+20. If the button is pressed again or if the steering wheel or the accellerator on the remote control is touched, the car will initiate an emergency break for one second. After this break the car returns to manual mode.
 
 
 
-7. Have fun!
+42. Have fun!
 
 ## 1.2 Overview of the files
+### 1.2.1 [DataRecorder.py]
+GUI for recording frames as .jpeg, according steering angle and accelerometer settings into a .csv.
+### 1.2.2 [GUI.py]
+GUI for selecting and running a trained model on the car.
+### 1.2.3 [KommunikationUart.py]
+This file is responsible for the UART communication between the Jetson and the STM32F4 Board. It is used in the main.py as an interface to the STM32F4 board.
+
+It consists of a configuration part, where some settings are made to that the Jetson side is configured right.
+
+A sending part, that is able to send 4 floats and 16 seperate bits. There are some reserves left for further upgrades.
+
+A reading part, that is able to receive 8 floats and 16 seperate bits. There are some reserves left for further upgrades.
+
+### 1.2.4 [drive.py]
+Was used for selecting and running a trained model on the car...use **GUI.py** instead
+
+### 1.2.5 [driveGUI.py]
+Used by GUI.py
+
+### 1.2.5 [kameratest.py]
+Call this one, to see, what the camera stream looks like at the moment.
+### 1.2.6 [model.py]
+Used for training a model on a specific dataset.
+### 1.2.7 [modelRetrain.py]
+Used for retraining a trained model on a specific dataset. Retrain with "python3 modelRetrain.py NameOfTheModel.h5"
+### 1.2.8 [plot_history.py]
+Shows the learning results and saves them to a .png
+### 1.2.8 [utils.py]
+A helper class for model.py, that has several training functions in it. e.g. changing the brightness or offset of a frame.
 
 
-# TODO
 ___
 <br><br>
 
