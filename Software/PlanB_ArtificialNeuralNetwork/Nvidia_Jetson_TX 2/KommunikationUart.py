@@ -62,11 +62,16 @@ class KommunikationUart:
 		#Steuerbits_16[13]=0		# Reserve
 		#Steuerbits_16[14]=0		# Reserve
 		#Steuerbits_16[15]=0		# Reserve
-		print("|Sende Steuerbits  MUSTER: "+ str(Steuerbits_16))
+		#print("|Sende Steuerbits  MUSTER: "+ str(Steuerbits_16))
 
 
-		Steuerbits_16=struct.unpack("<H", Steuerbits_16)[0] 		#bitarray wieder als unsigned short (16 bits) verpacken zum versenden
-		print("|Sende Steuerbits DEZIMAL: "+ str(Steuerbits_16))
+		#Steuerbits_16=struct.unpack("<H", Steuerbits_16)[0] 		#bitarray wieder als unsigned short (16 bits) verpacken zum versenden
+										# drecks python3... in 2.7 gings noch so	
+
+		Steuerbits_16=struct.unpack("<h", Steuerbits_16.tobytes())[0]	# nur so funktionierts in python3
+	
+		#struct.unpack("<h", bytes([b, a]))[0]
+		#print("|Sende Steuerbits DEZIMAL: "+ str(Steuerbits_16))
 
 
 		# Alle Daten in ein Bytearray zum versenden verpacken...Header und Terminator hinzufuegen
@@ -160,7 +165,7 @@ class KommunikationUart:
 		
 		
 		#Dictionarry zurueckgeben, in dem alle werte drinnen stehen und einen Namen haben		
-		return {'MomentanGeschwindigkeit':EmpfangsBytearray[0],'ProzentGaspedal':EmpfangsBytearray[1],'aktuellerStellwinkel':EmpfangsBytearray[2],'ReserveFloat4':EmpfangsBytearray[3],'ReserveFloat5':EmpfangsBytearray[4],'ReserveFloat6':EmpfangsBytearray[5],'ReserveFloat7':EmpfangsBytearray[6],'ReserveFloat8':EmpfangsBytearray[8],'StatusReserve1':Statusbits[0],'StatusReserve2':Statusbits[1],'StatusReserve3':Statusbits[2],'StatusReserve4':Statusbits[3],'StatusReserve5':Statusbits[4],'StatusReserve6':Statusbits[5],'StatusReserve7':Statusbits[6],'StatusReserve8':Statusbits[7],'StatusReserve9':Statusbits[8],'StatusReserve10':Statusbits[9],'StatusReserve11':Statusbits[10],'StatusReserve12':Statusbits[11],'StatusReserve13':Statusbits[12],'StatusReserve14':Statusbits[13],'StatusReserve15':Statusbits[14],'StatusReserve16':Statusbits[15]}
+		return {'MomentanGeschwindigkeit':EmpfangsBytearray[0],'ProzentGaspedal':EmpfangsBytearray[1],'aktuellerStellwinkel':EmpfangsBytearray[2],'ReserveFloat4':EmpfangsBytearray[3],'ReserveFloat5':EmpfangsBytearray[4],'ReserveFloat6':EmpfangsBytearray[5],'ReserveFloat7':EmpfangsBytearray[6],'ReserveFloat8':EmpfangsBytearray[8],'Bit_Modus_manuell_oder_autonom':Statusbits[0],'StatusReserve2':Statusbits[1],'StatusReserve3':Statusbits[2],'StatusReserve4':Statusbits[3],'StatusReserve5':Statusbits[4],'StatusReserve6':Statusbits[5],'StatusReserve7':Statusbits[6],'StatusReserve8':Statusbits[7],'StatusReserve9':Statusbits[8],'StatusReserve10':Statusbits[9],'StatusReserve11':Statusbits[10],'StatusReserve12':Statusbits[11],'StatusReserve13':Statusbits[12],'StatusReserve14':Statusbits[13],'StatusReserve15':Statusbits[14],'StatusReserve16':Statusbits[15]}
 
 #		print("|\n|==========================| Einlesen Abgeschlossen |========================= ")
 	   						       

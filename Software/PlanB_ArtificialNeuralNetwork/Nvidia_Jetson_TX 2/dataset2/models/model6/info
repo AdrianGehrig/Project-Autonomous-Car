@@ -1,0 +1,7 @@
+Datum: fertig erstellt am Di, den 19.06.2018
+
+
+20000 samples pro epoche
+190 Epochen 
+batchsize 40
+Learning Rate: 1.0e-3 mit decay rate: 1.0e-5

@@ -48,7 +48,7 @@ def Lade_schon_trainiertes_model(args):
 	"""
 	Lade ein bereits trainiertes model
 	"""
-	model = load_model('Pretrained_Model.h5')
+	model = load_model('model-183.h5')
 	return model
 
 
@@ -75,7 +75,7 @@ def train_model(model, args, X_train, X_valid, y_train, y_valid):
 	#divide by the number of them
 	#that value is our mean squared error! this is what we want to minimize via
 	#gradient descent
-	model.compile(loss='mean_squared_error', optimizer=Adam(lr=args.learning_rate), metrics=['mse', 'mae', 'mape', 'cosine'])
+	model.compile(loss='mean_squared_error', optimizer=Adam(lr=args.learning_rate, decay = args.decay_rate), metrics=['mse', 'mae', 'mape', 'cosine'])
 
 	#Fits the model on data generated batch-by-batch by a Python generator.
 
@@ -108,14 +108,15 @@ def main():
 	Load train/validation data set and train the model
 	"""
 	parser = argparse.ArgumentParser(description='Behavioral Cloning Training Program')
-	parser.add_argument('-d', help='data directory',        dest='data_dir',          type=str,   default='dataset1/data') #TODO: Zielpfad Datensatz
+	parser.add_argument('-d', help='data directory',        dest='data_dir',          type=str,   default='mergedDataset/data') #TODO: Zielpfad Datensatz
 	parser.add_argument('-t', help='test size fraction',    dest='test_size',         type=float, default=0.2)
 	parser.add_argument('-k', help='drop out probability',  dest='keep_prob',         type=float, default=0.5)
-	parser.add_argument('-n', help='number of epochs',      dest='nb_epoch',          type=int,   default=220)
+	parser.add_argument('-n', help='number of epochs',      dest='nb_epoch',          type=int,   default=19)
 	parser.add_argument('-s', help='samples per epoch',     dest='samples_per_epoch', type=int,   default=20000)
 	parser.add_argument('-b', help='batch size',            dest='batch_size',        type=int,   default=40)
 	parser.add_argument('-o', help='save best models only', dest='save_best_only',    type=s2b,   default='true')
-	parser.add_argument('-l', help='learning rate',         dest='learning_rate',     type=float, default=5.0e-6) #TODO learning rate kleiner gemacht
+	parser.add_argument('-l', help='learning rate',         dest='learning_rate',     type=float, default=1.0e-5) 
+	parser.add_argument('-de', help='decay rate',		dest='decay_rate',	type=float, default=0.00001) 
 	args = parser.parse_args()
 
     #print parameters

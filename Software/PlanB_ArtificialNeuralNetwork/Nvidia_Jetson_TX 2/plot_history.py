@@ -1,7 +1,7 @@
 import pickle
 import matplotlib.pyplot as plt
 
-path='dataset1/models/model2/'
+path='mergedDataset/models/model6/'
 
 with open(path+'history.pickle', 'rb') as handle:
     history = pickle.load(handle)
