@@ -34,7 +34,7 @@ ___
 ### [For a "Getting Started with Plan B" click here](https://github.com/AdrianGehrig/Project-Autonomous-Car/blob/master/Software/PlanB_ArtificialNeuralNetwork/README.md)
 _This Behavioral Cloning approach is heavily inspired by:_ 
 * _["How to Simulate a Self-Driving Car
-" from Siraj Raval]()_
+" from Siraj Raval](https://github.com/llSourcell/How_to_simulate_a_self_driving_car)_
 * _["End to End Learning for Self-Driving Cars" NVIDIA from NVIDIA](https://images.nvidia.com/content/tegra/automotive/images/2016/solutions/pdf/end-to-end-dl-using-px.pdf)_
 ### Concept:
 
